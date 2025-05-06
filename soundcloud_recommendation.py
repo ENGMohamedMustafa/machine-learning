@@ -13,19 +13,63 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Add simpler CSS
+# Add enhanced CSS styling
 st.markdown("""
 <style>
     .main-header {
-        font-size: 2rem;
-        color: #6f5506;
+        font-size: 2.2rem;
+        color: #ff5500;
+        font-weight: 600;
     }
     .track-card {
-        background-color: #f9f9f0;
-        border-radius: 10px;
-        padding: 1rem;
-        margin-bottom: 1rem;
+        background-color: #1e1e1e;
+        color: #ffffff;
+        border-radius: 12px;
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
         border-left: 4px solid #ff5500;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .track-info {
+        color: #ff5500;
+        font-size: 0.95rem;
+        margin: 8px 0;
+        font-weight: 500;
+    }
+    .track-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+    .track-artist {
+        color: #cccccc;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+    .track-stats {
+        color: #999999;
+        font-size: 0.85rem;
+        margin-top: 8px;
+    }
+    .stApp {
+        background-color: #121212;
+    }
+    h1, h2, h3, h4 {
+        color: #ffffff !important;
+    }
+    .stMarkdown {
+        color: #dddddd;
+    }
+    .stMetric {
+        background-color: #2a2a2a;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .stMetric label {
+        color: #dddddd !important;
+    }
+    .stMetric [data-testid="stMetricValue"] {
+        color: #ff5500 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -209,20 +253,20 @@ def hybrid_recommendations(user_id, user_profile, user_track_matrix, tracks_df,
     return top_recommendations
 
 def display_track_card(track):
-    """Display a simplified track card"""
+    """Display an enhanced track card with better styling"""
     st.markdown(f"""
     <div class="track-card">
-        <div><b>{track['title']}</b></div>
-        <div>{track['artist']}</div>
-        <div style="color: #ff5500;">{track['genre']} • {track['mood']} • {track['bpm']} BPM</div>
-        <div>Plays: {format(track['plays'], ',')} • Likes: {format(track['likes'], ',')}</div>
+        <div class="track-title">{track['title']}</div>
+        <div class="track-artist">{track['artist']}</div>
+        <div class="track-info">{track['genre']} • {track['mood']} • {track['bpm']} BPM</div>
+        <div class="track-stats">♬ {format(track['plays'], ',')} plays • ♥ {format(track['likes'], ',')} likes</div>
     </div>
     """, unsafe_allow_html=True)
 
 def main():
-    # Title and description
+    # Title and description with improved styling
     st.markdown('<h1 class="main-header">SoundCloud Recommendation System</h1>', unsafe_allow_html=True)
-    st.markdown('Discover new music you\'ll love')
+    st.markdown('<p style="font-size: 1.2rem; color: #bbbbbb; margin-bottom: 2rem;">Discover new music you\'ll love</p>', unsafe_allow_html=True)
     
     # Load data
     tracks_df, user_track_df, user_track_matrix = generate_sample_data()
@@ -315,7 +359,7 @@ def main():
             )
             rec_description = "Combining similar users' habits and your preferences"
     
-    st.caption(f"**{rec_description}**")
+    st.markdown(f'<p style="color: #bbbbbb; font-size: 1rem; margin-bottom: 1.5rem; font-style: italic;">{rec_description}</p>', unsafe_allow_html=True)
     
     # Display recommendations
     recommended_tracks = tracks_df[tracks_df['track_id'].isin(rec_track_ids)]

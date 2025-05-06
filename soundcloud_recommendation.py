@@ -18,7 +18,7 @@ st.markdown("""
 <style>
     .main-header {
         font-size: 2rem;
-        color: #ff5506;
+        color: #6f5506;
     }
     .track-card {
         background-color: #f9f9f0;

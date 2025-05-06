@@ -18,10 +18,10 @@ st.markdown("""
 <style>
     .main-header {
         font-size: 2rem;
-        color: #ff5500;
+        color: #ff5506;
     }
     .track-card {
-        background-color: #f9f9f9;
+        background-color: #f9f9f0;
         border-radius: 10px;
         padding: 1rem;
         margin-bottom: 1rem;

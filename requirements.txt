@@ -1,6 +1,11 @@
-streamlit
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
+torch>=1.13.0
+transformers>=4.30.0
+sentence-transformers>=2.2.2
+faiss-cpu>=1.7.3
+pypdf>=3.9.0
+rank-bm25>=0.2.2
+llama-cpp-python>=0.2.60
+pydub>=0.25.1
+pyttsx3>=2.90
+numpy>=1.23.0
+streamlit>=1.29.0
